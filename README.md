@@ -29,7 +29,7 @@ In Trie class
 In Main
 - Create a Trie object.
 - Insert the below words to the trie:   
-  red, Real, Rest, Ready.   
+  red, real, rest, ready.   
   tea, text, term, team.
 - Call the suggest() method to suggest words that start with the prefix (re).
 
