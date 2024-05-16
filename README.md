@@ -31,12 +31,10 @@ In Main
 - Insert the below words to the trie:   
   red, Real, Rest, Ready.   
   tea, text, term, team.
-- Suggest words that start with the prefix (re)
+- Call the suggest() method to suggest words that start with the prefix (re).
 
-
-
-  
-
+<br/>
+<br/>
 
 Node class
 
@@ -150,10 +148,6 @@ Add your code here
     public static void main(String[] args) {
 
         /* Add your code here */
-
-
-        // Suggest words that start with the prefix (re)
-
     }
 
 }
