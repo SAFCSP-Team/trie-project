@@ -16,20 +16,19 @@ In this project, our objective is to understand how to use Hashing with Open Add
 
    
 ### Problem
+   
+   
+Create an `insert` method to create the below `Trie`:   
 
+Figure 1   
 
-Create a `delete` method to remove a `key` from the hash table.
+   
+### Implementation   
 
-### Implementation
-
-* Calculate the initial index for the key using the hash function.
-* Use a while loop to search for the key in the table, the value at `table[index]` is not 0 (indicating an empty slot).
-* Within the loop, check if the value at `table[index]` is equal to the key being deleted. If there is a match, proceed to remove the key from the table.
-* To delete the key, assign the value -1 to `table[index]` (this acts as a deleted flag).
-* Decrement the size by 1 to reflect the removal of an element.
-* Return true to indicate a successful deletion.
-* If the loop completes without finding a match the value at table[index] is 0), return false to indicate an unsuccessful deletion.
-
+The insert method will call multiple methods to perform the insert operation.
+- Create a `height(Node node)`
+- Create a `height(Node node)`
+- Create a `height(Node node)`
 
 ```java
 
