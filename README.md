@@ -3,25 +3,17 @@
    
 ### Objective
 
-In this project, our objective is to understand how to use Hashing with Open Addressing technique.
-
-
-### Concepts
-
-|Concept|	Resources|
-|-------|----------|
-|Open Addressing concept|[Open Addressing](https://www.scaler.com/topics/data-structures/open-addressing/)|
-
-
+In this project, our objective is to understand how to create a Trie by developing an insert method and calling it with the suggest words method.   
+   
 
    
 ### Problem
    
    
-Create an `insert` method to create the below `Trie`:   
+Create the below `Trie`:   
 
 Figure 1   
-
+   
    
 ### Implementation   
 
@@ -31,83 +23,139 @@ In Node class
 
 
 
-In Trie class 
+In Trie class  
 - Create an insert method.
 
 In Main
-- Create a Trie.
-- Insert the below words to the trie:
-  Red, Real, Rest, Ready.
-  Tea, text, term, team.
+- Create a Trie object.
+- Insert the below words to the trie:   
+  red, Real, Rest, Ready.   
+  tea, text, term, team.
+- Suggest words that start with the prefix (re)
+
 
 
   
 
 
-
+Node class
 
 ```java
+public class Node {
 
-public class OpenAddressingHashTable {
-    private int[] arr;
-    private int capacity;
-    private int size;
+        /* Add your code here */
 
-    public OpenAddressingHashTable(int capacity) {
-        this.capacity = capacity;
-        this.arr = new int[capacity];
-        this.size = 0;
+    
+    Node(){
+        this.isEndOfWord = false;
+        for (int i = 0; i < this.children.length; i++)
+            children[i] = null;
+    }
+}
+```
+   
+Trie class
+   
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Trie {
+
+    private Node root;
+
+    Trie() {
+        this.root = new Node();
     }
 
-    public boolean insert(int key) {
-        if (size == capacity)
+/*
+Add your code here
+(insert method)
+*/
+   
+    // Search for a word in the trie
+    public boolean search(String key) {
+        Node currentNode = this.root;
+        for (int level = 0; level < key.length(); level++) {
+            int index = key.charAt(level) - 'a';
+            if (currentNode.children[index] == null)
+                return false;
+            currentNode = currentNode.children[index];
+        }
+        return (currentNode != null && currentNode.isEndOfWord);
+    }
+
+    // Delete a whole word in the Trie
+    public void delete(String key) {
+        delete(this.root, key, 0);
+    }
+
+    private boolean delete(Node node, String key, int level) {
+        if (node == null) {
             return false;
-
-        int index = hash(key);
-
-        while (arr[index] != 0 && arr[index] != -1) {
-            index = (index + 1) % capacity;
         }
-
-        arr[index] = key;
-        size++;
-        return true;
-    }
-
-    public boolean search(int key) {
-        int index = hash(key);
-
-        while (arr[index] != 0) {
-            if (arr[index] == key)
-                return true;
-
-            index = (index + 1) % capacity;
+        if (level == key.length()) {
+            if (!node.isEndOfWord) {
+                return false;
+            }
+            node.isEndOfWord = false;
+            return countChildren(node) == 0;
         }
-
+        int index = key.charAt(level) - 'a';
+        if (delete(node.children[index], key, level + 1)) {
+            if (countChildren(node) == 0)
+                node.children[index] = null;
+            return countChildren(node) == 0;
+        }
         return false;
     }
 
-    public boolean delete(int key) {
-
-         /* write your code here */
+    // Count the node children
+    private int countChildren(Node node) {
+        int count = 0;
+        for (Node child : node.children) {
+            if (child != null) {
+                count++;
+            }
+        }
+        return count;
     }
 
-    private int hash(int key) {
-        return key % capacity;
+    // Suggest words based on a given prefix
+    public List<String> suggest(String prefix) {
+        Node currentNode = root;
+        for (int level = 0; level < prefix.length(); level++) {
+            int index = prefix.charAt(level) - 'a';
+            if (currentNode.children[index] == null) {
+                return new ArrayList<>();
+            }
+            currentNode = currentNode.children[index];
+        }
+        return getWords(currentNode, prefix);
+    }
+
+    private List<String> getWords(Node node, String prefix) {
+        List<String> words = new ArrayList<>();
+        if (node.isEndOfWord) {
+            words.add(prefix);
+        }
+        for (int i = 0; i < node.children.length; i++) {
+            if (node.children[i] != null) {
+                words.addAll(getWords(node.children[i], prefix + (char) ('a' + i)));
+            }
+        }
+        return words;
     }
 
     public static void main(String[] args) {
 
-        OpenAddressingHashTable hashTable = new OpenAddressingHashTable(10);
+        /* Add your code here */
 
-        hashTable.insert(5);
-        hashTable.insert(15);
-        hashTable.insert(25);
-        hashTable.insert(35);
 
-        System.out.println("Search 15: " + hashTable.search(15));
+        // Suggest words that start with the prefix (re)
 
-        System.out.println("Search 20: " + hashTable.search(20));
     }
+
 }
+
 ```
