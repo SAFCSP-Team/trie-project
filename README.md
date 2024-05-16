@@ -25,10 +25,26 @@ Figure 1
    
 ### Implementation   
 
-The insert method will call multiple methods to perform the insert operation.
-- Create a `height(Node node)`
-- Create a `height(Node node)`
-- Create a `height(Node node)`
+In Node class
+- Create a `children` array of type **Node** with a fixed size **26**.
+- Create an `isEndOfWord` attribute of type **boolean**.
+
+
+
+In Trie class 
+- Create an insert method.
+
+In Main
+- Create a Trie.
+- Insert the below words to the trie:
+  Red, Real, Rest, Ready.
+  Tea, text, term, team.
+
+
+  
+
+
+
 
 ```java
 
