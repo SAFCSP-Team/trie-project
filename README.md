@@ -31,7 +31,7 @@ In Main
 - Insert the below words to the trie:   
   red, real, rest, ready.   
   tea, text, term, team.
-- Call the suggest() method to suggest words that start with the prefix (re).
+- Call the `suggest()` method to suggest words that start with the prefix (re).
 
 <br/>
 <br/>
