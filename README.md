@@ -26,7 +26,7 @@ In Node class
 In Trie class  
 - Create an insert method.
 
-In Main
+In Main method
 - Create a Trie object.
 - Insert the below words to the trie:   
   red, real, rest, ready.   
