@@ -26,7 +26,7 @@ In Trie class
 - Create an insert method.
 
 In Main method
-- Create a Trie object.
+- Create an object from Trie class.
 - Insert the below words to the trie:   
   red, real, rest, ready.   
   tea, text, term, team.
