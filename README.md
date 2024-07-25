@@ -5,7 +5,6 @@
 
 In this project, our objective is to understand how to create a Trie by developing an insert method and calling it with the suggest words method.   
    
-
    
 ### Problem
    
