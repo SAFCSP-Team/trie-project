@@ -12,7 +12,7 @@ In this project, our objective is to understand how to create a Trie by developi
 Create the below `Trie`:   
 
 Figure 1   
-    <img width="910" alt="Introduction to Trie" src="https://github.com/SAFCSP-Team/trie-project/blob/main/images/trie-project.jpg">
+    <img width="910" alt="Introduction to Trie" src="https://github.com/SAFCSP-Team/trie-project/blob/main/images/trie-proj%404x.png">
 ### Implementation   
 
 In Node class
